@@ -4,12 +4,12 @@ from core.models import Tag, Ingredient, Recipe
 
 
 class TagSerializer(serializers.ModelSerializer):
-    """Serializer for tag objects"""
+    """Serializer for tag object"""
 
     class Meta:
         model = Tag
         fields = ('id', 'name')
-        read_only_fields = ('id',)
+        read_only_Fields = ('id',)
 
 
 class IngredientSerializer(serializers.ModelSerializer):
@@ -29,7 +29,7 @@ class RecipeSerializer(serializers.ModelSerializer):
     )
     tags = serializers.PrimaryKeyRelatedField(
         many=True,
-        queryset=Ingredient.objects.all()
+        queryset=Tag.objects.all()
     )
 
     class Meta:
